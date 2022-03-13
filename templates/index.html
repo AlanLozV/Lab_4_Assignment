@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Machine Learning Fish Classifier API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="home">
+	<h1>Predict Fish species</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict') }}" method="post">
+    	<input type="text" name="fish_weight" placeholder="Fish Weight" required="required" />
+        <input type="text" name="fish_length1" placeholder="Fish Length 1" required="required" />
+        <input type="text" name="fish_length2" placeholder="Fish Length 2" required="required" />
+        <input type="text" name="fish_length3" placeholder="Fish Length 3" required="required" />
+		<input type="text" name="fish_height" placeholder="Fish Height" required="required" />
+		<input type="text" name="fish_width" placeholder="Fish Width" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+</body>
+</html>
